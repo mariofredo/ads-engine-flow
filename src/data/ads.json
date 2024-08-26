@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "image": "/blog-placeholder-1.jpg",
+    "title": "Ad 1",
+    "link": "https://example.com/ad1"
+  },
+  {
+    "id": 2,
+    "image": "/blog-placeholder-2.jpg",
+    "title": "Ad 2",
+    "link": "https://example.com/ad2"
+  },
+  {
+    "id": 3,
+    "image": "/blog-placeholder-3.jpg",
+    "title": "Ad 3",
+    "link": "https://example.com/ad3"
+  }
+]
