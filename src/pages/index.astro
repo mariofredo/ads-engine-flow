@@ -38,8 +38,8 @@ const trackClick = async (adId) => {
   <meta charset="UTF-8">
   <title>Ads Engine with Astro</title>
   <!-- Link to the script -->
-  <!-- <script src="/js/script.js" defer></script> -->
-   <script>
+  <script src="/js/ad-script.js" defer></script>
+   <!-- <script>
     document.addEventListener('DOMContentLoaded', function () {
   // Find all elements with the class 'my-ad'
   const adElements = document.querySelectorAll('.my-ad');
@@ -59,14 +59,14 @@ const trackClick = async (adId) => {
   });
 });
 
-   </script>
+   </script> -->
 </head>
 <body>
   <h1>Welcome to My Website</h1>
   
   <section>
     <h2>Sponsored Ad</h2>
-    <div class="my-ad"></div>
+    <div class="my-ad" data-city="New York" data-country="USA"></div>
     <!-- <AdComponent clientId="ca-pub-XXXXXXXXXXXXXXXX" slot="1234567890" client:load /> -->
     <!-- <Ad ad={selectedAd} onImpression={trackImpression} onClick={trackClick} client:load /> -->
   </section>
