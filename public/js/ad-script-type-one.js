@@ -28,7 +28,7 @@ const adElements = document.querySelectorAll('.ad-flow');
 console.log(`Found ${adElements.length} ad elements.`); // Log the number of ad elements
 
 adElements.forEach((adElement) => {
-  const adElementType = adElement.getAttribute('type');
+  const adElementType = adElement.getAttribute('data-type');
   console.log(`Processing ad element of type: ${adElementType}`); // Log the type of each ad element
 
   // Helper function to generate star rating HTML
