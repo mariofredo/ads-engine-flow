@@ -1,5 +1,7 @@
+console.log('lalala');
 document.addEventListener('DOMContentLoaded', function () {
   // Cari semua elemen dengan kelas "my-ad"
+  console.log('fire');
   const adElements = document.querySelectorAll('.ad-flow');
   console.log(adElements, 'test');
   adElements.forEach((adElement) => {
