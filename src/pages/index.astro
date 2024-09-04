@@ -1,37 +1,5 @@
 ---
-import Ad from '../components/Ad';
-import ads from '../data/ads.json';
 import '../styles/global.css';
-import '../styles/ad-type-one.css';
-import { AdComponent } from 'astro-ad-component';
-
-// Select a random ad
-const selectedAd = ads[Math.floor(Math.random() * ads.length)];
-
-// Define tracking functions
-const trackImpression = async (adId) => {
-  try {
-    await fetch('/api/track-impression', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ adId })
-    });
-  } catch (error) {
-    console.error('Error tracking impression:', error);
-  }
-};
-
-const trackClick = async (adId) => {
-  try {
-    await fetch('/api/track-click', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ adId })
-    });
-  } catch (error) {
-    console.error('Error tracking click:', error);
-  }
-};
 ---
 
 <!DOCTYPE html>
@@ -42,38 +10,13 @@ const trackClick = async (adId) => {
   <!-- Link to the script -->
   <script src="https://astro-ad-engine.vercel.app/js/ad-script-type-one.js" defer></script>
    <!-- <script src="http://localhost:4321/js/ad-script-type-one.js" defer></script> -->
-  <script src="/js/ad-script.js" defer></script>
-   <!-- <script>
-    document.addEventListener('DOMContentLoaded', function () {
-  // Find all elements with the class 'my-ad'
-  const adElements = document.querySelectorAll('.my-ad');
-
-  // Loop through each element and insert the ad content
-  adElements.forEach(function (adElement) {
-    // Example ad content
-    const adContent = `
-        <div style="border: 1px solid #ccc; padding: 10px; text-align: center;">
-          <h4>Advertisement</h4>
-          <p>Your Ad Here</p>
-          <a href="https://www.google.com" target="_blank">Click here</a>
-        </div>
-      `;
-    // Insert the ad content into the element
-    adElement.innerHTML = adContent;
-  });
-});
-
-   </script> -->
 </head>
 <body>
   <h1>Welcome to My Website</h1>
   
   <section>
     <h2>Sponsored Ad</h2>
-    <div class="my-ad" data-city="New York" data-country="USA"></div>
-    <div type="one" class="ad-flow" >
-
-    </div>
+    <div class="ad-flow" type="one"></div>
     <div class="ad-flow" type="two"></div>
     <div class="ad-flow" type="three"></div>
     <!-- <AdComponent clientId="ca-pub-XXXXXXXXXXXXXXXX" slot="1234567890" client:load /> -->
