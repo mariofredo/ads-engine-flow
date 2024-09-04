@@ -1,39 +1,49 @@
-console.log('lalala');
-document.addEventListener('DOMContentLoaded', function () {
-  // Create and append the Font Awesome CDN link dynamically
-  const fontAwesomeLink = document.createElement('link');
-  fontAwesomeLink.rel = 'stylesheet';
-  fontAwesomeLink.href =
-    'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css';
-  document.head.appendChild(fontAwesomeLink);
+function importCSS(url) {
+  // Create a new link element
+  const link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = url;
 
-  // Cari semua elemen dengan kelas "ad-flow"
-  const adElements = document.querySelectorAll('.ad-flow');
-  console.log(adElements, 'test');
+  // Append the link element to the head of the document
+  document.head.appendChild(link);
+}
 
-  adElements.forEach((adElement) => {
-    const adElementType = adElement.getAttribute('type');
+// Example usage
+importCSS('http://localhost:4321/css/ad-type-one.css');
+// Create and append the Font Awesome CDN link dynamically
+const fontAwesomeLink = document.createElement('link');
+fontAwesomeLink.rel = 'stylesheet';
+fontAwesomeLink.href =
+  'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css';
+document.head.appendChild(fontAwesomeLink);
 
-    // Helper function to generate star rating HTML
-    function generateStarRating(rating) {
-      let starHTML = '';
-      for (let i = 1; i <= 5; i++) {
-        if (i <= Math.floor(rating)) {
-          starHTML += '<i class="fa fa-star full"></i>'; // Full star
-        } else if (i === Math.ceil(rating) && rating % 1 !== 0) {
-          starHTML += '<i class="fa fa-star half"></i>'; // Half star
-        } else {
-          starHTML += '<i class="fa fa-star"></i>'; // Empty star
-        }
+// Cari semua elemen dengan kelas "ad-flow"
+const adElements = document.querySelectorAll('.ad-flow');
+console.log(adElements, 'test');
+
+adElements.forEach((adElement) => {
+  const adElementType = adElement.getAttribute('type');
+
+  // Helper function to generate star rating HTML
+  function generateStarRating(rating) {
+    let starHTML = '';
+    for (let i = 1; i <= 5; i++) {
+      if (i <= Math.floor(rating)) {
+        starHTML += '<i class="fa fa-star full"></i>'; // Full star
+      } else if (i === Math.ceil(rating) && rating % 1 !== 0) {
+        starHTML += '<i class="fa fa-star half"></i>'; // Half star
+      } else {
+        starHTML += '<i class="fa fa-star"></i>'; // Empty star
       }
-      return starHTML;
     }
+    return starHTML;
+  }
 
-    // Loop melalui setiap elemen dan isi dengan konten iklan
-    switch (adElementType) {
-      case 'one':
-        const ratingOne = 3.4;
-        return (adElement.innerHTML = `
+  // Loop melalui setiap elemen dan isi dengan konten iklan
+  switch (adElementType) {
+    case 'one':
+      const ratingOne = 3.4;
+      return (adElement.innerHTML = `
           <div class="card-ad">
             <img class="card-ad-img" src="http://localhost:4321/blog-placeholder-1.jpg" alt="blog-placeholder">
             <div class="card-ad-content">
@@ -61,9 +71,9 @@ document.addEventListener('DOMContentLoaded', function () {
             </div>
           </div>
     `);
-      case 'two':
-        const ratingSecond = 4;
-        return (adElement.innerHTML = `
+    case 'two':
+      const ratingSecond = 4;
+      return (adElement.innerHTML = `
       <div class="card-ad card-ad-row">
        <img class="card-ad-img" src="http://localhost:4321/blog-placeholder-1.jpg" alt="blog-placeholder">
        <div class="card-ad-content">
@@ -91,10 +101,10 @@ document.addEventListener('DOMContentLoaded', function () {
        </div>
      </div>
       `);
-      case 'three':
-        const arr = Array.from({length: 6}, (_, i) => i + 1);
-        const cards = arr.map(
-          (_) => `<div class="card-ad">
+    case 'three':
+      const arr = Array.from({length: 6}, (_, i) => i + 1);
+      const cards = arr.map(
+        (_) => `<div class="card-ad">
        <img class="card-ad-img" src="http://localhost:4321/blog-placeholder-1.jpg" alt="blog-placeholder">
        <div class="card-ad-content">
          <h1 class="card-ad-title">Hotel Purple</h1>
@@ -118,12 +128,11 @@ document.addEventListener('DOMContentLoaded', function () {
          <a href="#" class="card-ad-button"><span class="card-ad-button-text">HK$ 50</span></a>
        </div>
      </div>`
-        );
-        return (adElement.innerHTML = `
+      );
+      return (adElement.innerHTML = `
           <div class="card-ad-container">
               ${cards.join('')}
           </div>
           `);
-    }
-  });
+  }
 });
