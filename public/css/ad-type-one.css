@@ -119,3 +119,25 @@
   font-weight: 600;
   line-height: normal;
 }
+
+/* Star CSS */
+.star-rating {
+  display: flex;
+  direction: ltr;
+}
+
+.star-rating .fa-star {
+  font-size: 2rem;
+  color: gray;
+  position: relative;
+}
+
+.star-rating .full {
+  color: gold;
+}
+
+.star-rating .half {
+  background: linear-gradient(90deg, gold 50%, gray 50%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
