@@ -11,7 +11,7 @@ function importCSS(url) {
 const baseURL = `https://astro-ad-engine.vercel.app`;
 
 // Example usage
-importCSS(`${baseURL}/css/ad-type-one.css`);
+importCSS(`https://astro-ad-engine.vercel.app/css/ad-type-one.css`);
 // Create and append the Font Awesome CDN link dynamically
 const fontAwesomeLink = document.createElement('link');
 fontAwesomeLink.rel = 'stylesheet';
@@ -45,11 +45,11 @@ adElements.forEach((adElement) => {
       const ratingOne = 3.4;
       return (adElement.innerHTML = `
           <div class="card-ad">
-            <img class="card-ad-img" src="${baseURL}/blog-placeholder-1.jpg" alt="blog-placeholder">
+            <img class="card-ad-img" src="https://astro-ad-engine.vercel.app/blog-placeholder-1.jpg" alt="blog-placeholder">
             <div class="card-ad-content">
               <h1 class="card-ad-title">Hotel Purple</h1>
               <div class="card-ad-location">
-                <img class="card-ad-location-icon" src="${baseURL}/location-icon.svg" alt="location_icon">
+                <img class="card-ad-location-icon" src="https://astro-ad-engine.vercel.app/location-icon.svg" alt="location_icon">
                 <p class="card-ad-location-text">Grand Slipi Tower</p>
               </div>
               <div class="card-ad-review">
@@ -75,11 +75,11 @@ adElements.forEach((adElement) => {
       const ratingSecond = 4;
       return (adElement.innerHTML = `
       <div class="card-ad card-ad-row">
-       <img class="card-ad-img" src="${baseURL}/blog-placeholder-1.jpg" alt="blog-placeholder">
+       <img class="card-ad-img" src="https://astro-ad-engine.vercel.app/blog-placeholder-1.jpg" alt="blog-placeholder">
        <div class="card-ad-content">
          <h1 class="card-ad-title">Hotel Purple</h1>
          <div class="card-ad-location">
-           <img class="card-ad-location-icon" src="${baseURL}/location-icon.svg" alt="location_icon">
+           <img class="card-ad-location-icon" src="https://astro-ad-engine.vercel.app/location-icon.svg" alt="location_icon">
            <p class="card-ad-location-text">Grand Slipi Tower</p>
          </div>
          <div class="card-ad-review">
@@ -105,15 +105,15 @@ adElements.forEach((adElement) => {
       const arr = Array.from({length: 6}, (_, i) => i + 1);
       const cards = arr.map(
         (_) => `<div class="card-ad">
-       <img class="card-ad-img" src="${baseURL}/blog-placeholder-1.jpg" alt="blog-placeholder">
+       <img class="card-ad-img" src="https://astro-ad-engine.vercel.app/blog-placeholder-1.jpg" alt="blog-placeholder">
        <div class="card-ad-content">
          <h1 class="card-ad-title">Hotel Purple</h1>
          <div class="card-ad-location">
-           <img class="card-ad-location-icon" src="${baseURL}/location-icon.svg" alt="location_icon">
+           <img class="card-ad-location-icon" src="https://astro-ad-engine.vercel.app/location-icon.svg" alt="location_icon">
            <p class="card-ad-location-text">Grand Slipi Tower</p>
          </div>
          <div class="card-ad-review">
-           <img class="card-ad-review-icon" src="${baseURL}/star-icon.svg" alt="star_icon">
+           <img class="card-ad-review-icon" src="https://astro-ad-engine.vercel.app/star-icon.svg" alt="star_icon">
            <p class="card-ad-review-text">4.5 / 5 <span class="card-ad-review-count">(243 Reviews)</span></p>
          </div>
          <div class="card-ad-tag-list">
