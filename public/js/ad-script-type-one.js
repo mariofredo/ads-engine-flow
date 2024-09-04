@@ -1,4 +1,5 @@
 function importCSS(url) {
+  console.log(`Importing CSS from: ${url}`); // Log the URL being imported
   // Create a new link element
   const link = document.createElement('link');
   link.rel = 'stylesheet';
@@ -7,11 +8,14 @@ function importCSS(url) {
   // Append the link element to the head of the document
   document.head.appendChild(link);
 }
-// const baseURL = `http://localhost:4321`;
+
+// Define base URL
 const baseURL = `https://astro-ad-engine.vercel.app`;
+console.log(`Base URL: ${baseURL}`); // Log the base URL
 
 // Example usage
 importCSS(`${baseURL}/css/ad-type-one.css`);
+
 // Create and append the Font Awesome CDN link dynamically
 const fontAwesomeLink = document.createElement('link');
 fontAwesomeLink.rel = 'stylesheet';
@@ -19,10 +23,13 @@ fontAwesomeLink.href =
   'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css';
 document.head.appendChild(fontAwesomeLink);
 
-// Cari semua elemen dengan kelas "ad-flow"
+// Find all elements with class "ad-flow"
 const adElements = document.querySelectorAll('.ad-flow');
+console.log(`Found ${adElements.length} ad elements.`); // Log the number of ad elements
+
 adElements.forEach((adElement) => {
   const adElementType = adElement.getAttribute('type');
+  console.log(`Processing ad element of type: ${adElementType}`); // Log the type of each ad element
 
   // Helper function to generate star rating HTML
   function generateStarRating(rating) {
