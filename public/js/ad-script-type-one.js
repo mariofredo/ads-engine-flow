@@ -8,7 +8,7 @@ function importCSS(url) {
   document.head.appendChild(link);
 }
 // const baseURL = `http://localhost:4321`;
-const baseURL = __BASE_URL__;
+const baseURL = `https://astro-ad-engine.vercel.app`;
 
 // Example usage
 importCSS(`${baseURL}/css/ad-type-one.css`);

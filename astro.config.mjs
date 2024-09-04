@@ -3,12 +3,8 @@ import mdx from '@astrojs/mdx';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 
+// https://astro.build/config
 export default defineConfig({
-  site: 'https://astro-ad-engine.vercel.app',
+  site: 'https://example.com',
   integrations: [react(), mdx(), sitemap()],
-  vite: {
-    define: {
-      __BASE_URL__: JSON.stringify(process.env.VITE_FE_URL),
-    },
-  },
 });
