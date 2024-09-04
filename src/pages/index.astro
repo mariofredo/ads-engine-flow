@@ -1,6 +1,8 @@
 ---
 import Ad from '../components/Ad';
 import ads from '../data/ads.json';
+import '../styles/global.css';
+import '../styles/ad-type-one.css';
 import { AdComponent } from 'astro-ad-component';
 
 // Select a random ad
@@ -38,6 +40,8 @@ const trackClick = async (adId) => {
   <meta charset="UTF-8">
   <title>Ads Engine with Astro</title>
   <!-- Link to the script -->
+   <link rel="stylesheet" href="http://localhost:4321/css/ad-type-one.css">
+   <script src="http://localhost:4321/js/ad-script-type-one.js" defer></script>
   <script src="/js/ad-script.js" defer></script>
    <!-- <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -67,6 +71,11 @@ const trackClick = async (adId) => {
   <section>
     <h2>Sponsored Ad</h2>
     <div class="my-ad" data-city="New York" data-country="USA"></div>
+    <div type="one" class="ad-flow" >
+
+    </div>
+    <div class="ad-flow" type="two"></div>
+    <div class="ad-flow" type="three"></div>
     <!-- <AdComponent clientId="ca-pub-XXXXXXXXXXXXXXXX" slot="1234567890" client:load /> -->
     <!-- <Ad ad={selectedAd} onImpression={trackImpression} onClick={trackClick} client:load /> -->
   </section>
