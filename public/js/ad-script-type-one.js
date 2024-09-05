@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // Define base URL
-  // const baseURL = `https://astro-ad-engine.vercel.app`;
-  const baseURL = `http://localhost:4321/`;
+  const baseURL = `https://astro-ad-engine.vercel.app`;
+  // const baseURL = `http://localhost:4321/`;
   console.log(`Base URL: ${baseURL}`); // Log the base URL
 
   // Example usage
