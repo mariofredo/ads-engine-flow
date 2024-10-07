@@ -6,22 +6,25 @@ import '../styles/global.css';
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ads Engine with Astro</title>
-  <!-- Link to the script -->
-   <!-- <script src="http://localhost:4321/js/ad-script-type-one.js" defer></script> -->
 </head>
 <body>
-  <h1>Welcome to My Website</h1>
-  
+  <h1 style="text-align: center;">Welcome, Take a look at 3 types of Ads</h1>
   <section>
-    <h2>Sponsored Ad</h2>
-    <div class="ad-flow" data-type="one" ></div>
-    <div class="ad-flow" data-type="two"></div>
-    <div class="ad-flow" data-type="three"></div>
-    <!-- <AdComponent clientId="ca-pub-XXXXXXXXXXXXXXXX" slot="1234567890" client:load /> -->
-    <!-- <Ad ad={selectedAd} onImpression={trackImpression} onClick={trackClick} client:load /> -->
+    <div>
+      <h2 style="text-align: center;">Type A:</h2>
+      <div class="ad-flow" data-type="one">Ad Content for Type A</div>
+    </div>
+    <div>
+      <h2 style="text-align: center;">Type B:</h2>
+      <div class="ad-flow" data-type="two">Ad Content for Type B</div>
+    </div>
+    <div>
+      <h2 style="text-align: center;">Type C:</h2>
+      <div class="ad-flow" data-type="three">Ad Content for Type C</div>
+    </div>
   </section>
-  <script src="js/ads-engine.js" defer></script>
-
+  <script src="js/ad-script-type-one.js" defer></script>
 </body>
 </html>
