@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
   let arr;
-  async function callHotelData() {
+  async function callHotelData(payload) {
     console.log('call hotel data');
     const response = await fetch(
       'https://typesense.flowtheroom.com/multi_search?region=hk',
@@ -12,25 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
           'x-typesense-api-key': '8juFWVOoEDP5Pm1UlpQEFP42rvBdKu5l',
           'x-typesense-cluster-id': 'm2wlnapq6ue95y3zp',
         },
-        body: JSON.stringify({
-          searches: [
-            {
-              collection: 'space_HK_1_PROD',
-              page: 1,
-              include_fields:
-                'slug,_id,name,location.area,location.district,location.country,location.city,location.state,_geoloc,_tags,tags,images,ranking,config,id,top_comments,top_comments_average_rating,status.min_prices,frame_style,status',
-              per_page: 10,
-              query_by:
-                'name,location.address,location.area.name,location.district.name,location.meta_district.name,location.city.name,location.state.name,amenities.name,tags.content',
-              sort_by:
-                '_text_match:desc,_eval([(ranking.is_promotion:true):10,(ranking.is_featured:true):9]):desc,ranking.normalized_score:desc',
-              override_tags: 'deals_today-s-deal',
-              filter_by:
-                '_tags:=live && config.show.is_web_show:=true && (config.show.status:!=UNLISTED) && ((tags.slug:=today-s-deal))',
-              q: '*',
-            },
-          ],
-        }),
+        body: JSON.stringify(payload),
       }
     );
     if (response.ok) {
@@ -49,7 +31,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // Append the link element to the head of the document
     document.head.appendChild(link);
   }
-
+  const urlParams = new URLSearchParams(window.location.search);
+  const search = urlParams.get('search');
   // Define base URL
   const baseURL = `https://astro-ad-engine.vercel.app`;
   // const baseURL = `http://localhost:4321`;
@@ -93,7 +76,25 @@ document.addEventListener('DOMContentLoaded', function () {
       switch (adElementType) {
         case 'one':
           const ratingOne = 3.4;
-          callHotelData();
+          // callHotelData({
+          //   searches: [
+          //     {
+          //       collection: 'space_HK_1_PROD',
+          //       page: 1,
+          //       include_fields:
+          //         'slug,_id,name,location.area,location.district,location.country,location.city,location.state,_geoloc,_tags,tags,images,ranking,config,id,top_comments,top_comments_average_rating,status.min_prices,frame_style,status',
+          //       per_page: 10,
+          //       query_by:
+          //         'name,location.address,location.area.name,location.district.name,location.meta_district.name,location.city.name,location.state.name,amenities.name,tags.content',
+          //       sort_by:
+          //         '_text_match:desc,_eval([(ranking.is_promotion:true):10,(ranking.is_featured:true):9]):desc,ranking.normalized_score:desc',
+          //       override_tags: 'deals_today-s-deal',
+          //       filter_by:
+          //         '_tags:=live && config.show.is_web_show:=true && (config.show.status:!=UNLISTED) && ((tags.slug:=today-s-deal))',
+          //       q: adElement.getAttribute('data-search') || '*',
+          //     },
+          //   ],
+          // });
 
           return (adElement.innerHTML = `
               <div class="card-ad">
@@ -154,8 +155,26 @@ document.addEventListener('DOMContentLoaded', function () {
          </div>
           `);
         case 'three':
-          const {results} = await callHotelData();
-          console.log(results, 'three');
+          const {results} = await callHotelData({
+            searches: [
+              {
+                collection: 'space_HK_1_PROD',
+                page: 1,
+                include_fields:
+                  'slug,_id,name,location.area,location.district,location.country,location.city,location.state,_geoloc,_tags,tags,images,ranking,config,id,top_comments,top_comments_average_rating,status.min_prices,frame_style,status',
+                per_page: 10,
+                query_by:
+                  'name,location.address,location.area.name,location.district.name,location.meta_district.name,location.city.name,location.state.name,amenities.name,tags.content',
+                sort_by:
+                  '_text_match:desc,_eval([(ranking.is_promotion:true):10,(ranking.is_featured:true):9]):desc,ranking.normalized_score:desc',
+                override_tags: 'deals_today-s-deal',
+                filter_by:
+                  '_tags:=live && config.show.is_web_show:=true && (config.show.status:!=UNLISTED) && ((tags.slug:=today-s-deal))',
+                q: search || '*',
+              },
+            ],
+          });
+
           const arr = results[0].hits;
           const cards = arr.map(
             (item) => `<div class="card-ad">
