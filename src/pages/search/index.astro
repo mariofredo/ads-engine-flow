@@ -1,0 +1,29 @@
+---
+import '../../styles/global.css';
+import '../../../public/css/search.css';
+
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Search Ads Engine with Astro</title>
+  <!-- Link to the script -->
+   <!-- <script src="http://localhost:4321/js/ad-script-type-one.js" defer></script> -->
+</head>
+<body>
+  <div class="search_box">
+    <img class="search_logo" src="../../../public/flow_logo.svg" alt="">
+    <div class="search_input">
+      <div class="search_item">
+        <img class="search_item_icon" src="../../../public/search_icon.svg" alt="">
+        <input name="search" class="search_item_input" type="text" placeholder="Search for ads" />
+      </div>
+      <button class="search_btn"><img src="../../../public/search_icon_black.svg"  alt=""></button>
+    </div>
+  </div>
+  <script src="js/search.js" defer></script>
+
+</body>
+</html>
