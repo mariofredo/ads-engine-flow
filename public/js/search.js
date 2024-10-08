@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
         </div>
         <div class="search_item">
           <img class="search_item_icon" src="${baseURL}/bed_icon.svg" alt=""> 
-          <input name="rest" class="search_item_input" type="text" value="02-04-2024" readonly />
+          <input name="rest" class="search_item_input" type="text" value="Rest" readonly />
         </div>
         <div class="search_item">
           <img class="search_item_icon" src="${baseURL}/calendar_icon.svg" alt=""> 
