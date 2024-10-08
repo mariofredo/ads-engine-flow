@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const urlParams = new URLSearchParams(window.location.search);
   const search = urlParams.get('search');
   // Define base URL
-  const baseURL = `https://astro-ad-engine.vercel.app`;
+  const baseURL = `https://ads-engine-flow.vercel.app`;
   // const baseURL = `http://localhost:4321`;
   console.log(`Base URL: ${baseURL}`); // Log the base URL
 
