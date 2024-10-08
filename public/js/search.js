@@ -9,8 +9,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // Append the link element to the head of the document
     document.head.appendChild(link);
   }
-  const baseURL = `https://ads-engine-flow.vercel.app`;
-  // const baseURL = `http://localhost:4321`;
+  // const baseURL = `https://ads-engine-flow.vercel.app`;
+  const baseURL = `http://localhost:4321`;
   document.getElementById('flow-search').innerHTML = `<form class="search_box">
       <img class="search_logo" src="${baseURL}/flow_logo.svg" alt="">
       <div class="search_input">
@@ -19,8 +19,16 @@ document.addEventListener('DOMContentLoaded', function () {
           <input name="search" class="search_item_input" type="text" placeholder="Search for hotel" />
         </div>
         <div class="search_item">
-          <!-- <img class="search_item_icon" src="${baseURL}/public/calendar_icon.svg" alt=""> -->
-          <input name="search" class="search_item_input" type="date" />
+          <img class="search_item_icon" src="${baseURL}/bed_icon.svg" alt=""> 
+          <input name="rest" class="search_item_input" type="text" value="02-04-2024" readonly />
+        </div>
+        <div class="search_item">
+          <img class="search_item_icon" src="${baseURL}/calendar_icon.svg" alt=""> 
+          <input name="rest" class="search_item_input" type="text" value="02-04-2024" readonly />
+        </div>
+        <div class="search_item">
+          <img class="search_item_icon" src="${baseURL}/time_icon.svg" alt=""> 
+          <input name="rest" class="search_item_input" type="text" value="Check-in Anytime" readonly />
         </div>
         <button class="search_btn"><img src="${baseURL}/search_icon_black.svg"  alt=""></button>
       </div>
