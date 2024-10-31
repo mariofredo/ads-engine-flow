@@ -54,6 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   adElements.forEach((adElement) => {
     const adElementType = adElement.getAttribute('data-type');
+    const adElementHref = adElement.getAttribute('data-href');
     console.log(`Processing ad element of type: ${adElementType}`); // Log the type of each ad element
 
     // Helper function to generate star rating HTML
@@ -97,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
           // });
 
           return (adElement.innerHTML = `
-              <div class="card-ad">
+              <a href="${adElementHref}?a_aid=671f70eb411e" target="_blank" class="card-ad">
                 <img class="card-ad-img" src="${baseURL}/blog-placeholder-1.jpg" alt="blog-placeholder">
                 <div class="card-ad-content">
                   <h1 class="card-ad-title">Hotel Purple</h1>
@@ -120,14 +121,14 @@ document.addEventListener('DOMContentLoaded', function () {
                     <div class="card-ad-available-text">Available date</div>
                     <p class="card-ad-available-date">10-12-2024</p>
                   </div>
-                  <a href="#" class="card-ad-button"><span class="card-ad-button-text">HK$ 50</span></a>
+                  <div class="card-ad-button"><span class="card-ad-button-text">HK$ 50</span></div>
                 </div>
-              </div>
+              </a>
         `);
         case 'two':
           const ratingSecond = 4;
           return (adElement.innerHTML = `
-          <div class="card-ad card-ad-row">
+          <a href="${adElementHref}?a_aid=671f70eb411e" target="_blank" class="card-ad card-ad-row">
            <img class="card-ad-img" src="${baseURL}/blog-placeholder-1.jpg" alt="blog-placeholder">
            <div class="card-ad-content">
              <h1 class="card-ad-title">Hotel Purple</h1>
@@ -150,9 +151,9 @@ document.addEventListener('DOMContentLoaded', function () {
                <div class="card-ad-available-text">Available date</div>
                <p class="card-ad-available-date">10-12-2024</p>
              </div>
-             <a href="#" class="card-ad-button"><span class="card-ad-button-text">HK$ 50</span></a>
+             <div class="card-ad-button"><span class="card-ad-button-text">HK$ 50</span></div>
            </div>
-         </div>
+         </a>
           `);
         case 'three':
           const {results} = await callHotelData({
@@ -176,8 +177,9 @@ document.addEventListener('DOMContentLoaded', function () {
           });
 
           const arr = results[0].hits;
+          const adElementHref = adElement.getAttribute('data-href');
           const cards = arr.map(
-            (item) => `<div class="card-ad">
+            (item) => `<a href="${adElementHref}?a_aid=671f70eb411e" target="_blank" class="card-ad">
            <img class="card-ad-img" src="${
              item.document.images[0]
            }" alt="blog-placeholder">
@@ -215,9 +217,9 @@ document.addEventListener('DOMContentLoaded', function () {
                <div class="card-ad-available-text">Available date</div>
                <p class="card-ad-available-date">10-12-2024</p>
              </div>
-             <a href="#" class="card-ad-button"><span class="card-ad-button-text">HK$ 50</span></a>
+             <div class="card-ad-button"><span class="card-ad-button-text">HK$ 50</span></div>
            </div>
-         </div>`
+         </a>`
           );
           return (adElement.innerHTML = `
               <div class="card-ad-container">

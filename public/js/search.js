@@ -40,14 +40,14 @@ document.addEventListener('DOMContentLoaded', function () {
     .addEventListener('submit', function (e) {
       e.preventDefault();
       window.open(
-        `${baseURL}/list?search=${
+        `${baseURL}/list?a_aid=671f70eb411e&search=${
           document.querySelector('.search_item_input').value
         }`
       );
     });
   document.querySelector('.search_btn').addEventListener('click', function () {
     window.open(
-      `${baseURL}/list?search=${
+      `${baseURL}/list?a_aid=671f70eb411e&search=${
         document.querySelector('.search_item_input').value
       }`
     );
