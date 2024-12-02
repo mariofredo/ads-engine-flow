@@ -75,6 +75,10 @@ document.addEventListener('DOMContentLoaded', function () {
       }
       return starHTML;
     }
+    function convertTimestampToDate(timestamp) {
+      const date = new Date(timestamp);
+      return date.toLocaleString(); // Adjust options if you need a specific format
+    }
 
     // Loop melalui setiap elemen dan isi dengan konten iklan
     async function handleRenderCard() {
@@ -192,58 +196,58 @@ document.addEventListener('DOMContentLoaded', function () {
             },
           });
           console.log(data, 'data');
-        //   const arr = results[0].hits;
-        //   const adElementHref = adElement.getAttribute('data-href');
-        //   const cards = arr.map(
-        //     (
-        //       item
-        //     ) => `<a href="${adElementHref}?a_aid=671f70eb411e" target="_blank" class="card-ad">
-        //    <img class="card-ad-img" src="${
-        //      item.document.images[0]
-        //    }" alt="blog-placeholder">
-        //    <div class="card-ad-content">
-        //      <h1 class="card-ad-title">${item.document.name.en}</h1>
-        //      <div class="card-ad-location">
-        //        <img class="card-ad-location-icon" src="${baseURL}/location-icon.svg" alt="location_icon">
-        //        <p class="card-ad-location-text">${
-        //          item.document.location.district.name.en +
-        //          ', ' +
-        //          item.document.location.state.name.en
-        //        }</p>
-        //      </div>
-        //         <div class="card-ad-review">
-        //             <div class="star-rating">
-        //                 ${generateStarRating(
-        //                   item.document.ranking.user_rating ?? 0
-        //                 )}
-        //             </div>
-        //             <p class="card-ad-review-text"><span id="rating value">${
-        //               item.document.ranking.user_rating ?? 0
-        //             }</span> / 5 <span class="card-ad-review-count">(${
-        //       item.document.ranking.total_comments
-        //     } Reviews)</span></p>
-        //           </div>
-        //      <div class="card-ad-tag-list">
-        //       ${item.document.tags
-        //         .map(
-        //           (tag) =>
-        //             `<div class="card-ad-tag-bubble">${tag.content.en}</div>`
-        //         )
-        //         .join('')}
-        //      </div>
-        //      <div class="card-ad-available">
-        //        <div class="card-ad-available-text">Available date</div>
-        //        <p class="card-ad-available-date">10-12-2024</p>
-        //      </div>
-        //      <div class="card-ad-button"><span class="card-ad-button-text">HK$ 50</span></div>
-        //    </div>
-        //  </a>`
-        //   );
-        //   return (adElement.innerHTML = `
-        //       <div class="card-ad-container">
-        //           ${cards.join('')}
-        //       </div>
-        //       `);
+          const {spaces} = data;
+          const adElementHref = adElement.getAttribute('data-href');
+          const cards = spaces.map(
+            (
+              item
+            ) => `<a href="${adElementHref}?a_aid=671f70eb411e" target="_blank" class="card-ad">
+           <img class="card-ad-img" src="${
+             item.images[0]
+           }" alt="blog-placeholder">
+           <div class="card-ad-content">
+             <h1 class="card-ad-title">${item.name.en}</h1>
+             <div class="card-ad-location">
+               <img class="card-ad-location-icon" src="${baseURL}/location-icon.svg" alt="location_icon">
+               <p class="card-ad-location-text">${
+                 item.location.district.name.en +
+                 ', ' +
+                 item.location.state.name.en
+               }</p>
+             </div>
+                <div class="card-ad-review">
+                    <div class="star-rating">
+                        ${generateStarRating(item.ranking.user_rating ?? 0)}
+                    </div>
+                    <p class="card-ad-review-text"><span id="rating value">${
+                      item.ranking.user_rating ?? 0
+                    }</span> / 5 <span class="card-ad-review-count">(${
+              item.ranking.total_comments
+            } Reviews)</span></p>
+                  </div>
+             <div class="card-ad-tag-list">
+              ${item.tags
+                .map(
+                  (tag) =>
+                    `<div class="card-ad-tag-bubble">${tag.content.en}</div>`
+                )
+                .join('')}
+             </div>
+             <div class="card-ad-available">
+               <div class="card-ad-available-text">Available date</div>
+               <p class="card-ad-available-date">${convertTimestampToDate(
+                 item.next_available
+               )}</p>
+             </div>
+             <div class="card-ad-button"><span class="card-ad-button-text">HK$ 50</span></div>
+           </div>
+         </a>`
+          );
+          return (adElement.innerHTML = `
+              <div class="card-ad-container">
+                  ${cards.join('')}
+              </div>
+              `);
       }
     }
     handleRenderCard();
