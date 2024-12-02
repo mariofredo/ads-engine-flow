@@ -197,11 +197,11 @@ document.addEventListener('DOMContentLoaded', function () {
           });
           console.log(data, 'data');
           const {spaces} = data;
-          const adElementHref = adElement.getAttribute('data-href');
+          const adElementHref = ``;
           const cards = spaces.map(
-            (
-              item
-            ) => `<a href="${adElementHref}?a_aid=671f70eb411e" target="_blank" class="card-ad">
+            (item) => `<a href="https://app.flowtheroom.com/hk/en/${
+              item.slug
+            }/hotel" target="_blank" class="card-ad">
            <img class="card-ad-img" src="${
              item.images[0]
            }" alt="blog-placeholder">
