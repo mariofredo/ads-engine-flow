@@ -188,7 +188,7 @@ document.addEventListener('DOMContentLoaded', function () {
             include_buttons: false,
             query: {
               id,
-              type,
+              type: type === 'NAME' ? 'SPACE' : type,
             },
           });
           console.log(data, 'data');
