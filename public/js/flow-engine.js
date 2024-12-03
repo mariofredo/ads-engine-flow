@@ -53,13 +53,13 @@ document.addEventListener('DOMContentLoaded', function () {
   document.head.appendChild(fontAwesomeLink);
 
   // Find all elements with class "ad-flow"
-  const adElements = document.querySelectorAll('.ad-flow');
+  const adElements = document.querySelectorAll('.flow-box');
   console.log(`Found ${adElements.length} ad elements.`); // Log the number of ad elements
 
   adElements.forEach((adElement) => {
-    const adElementType = adElement.getAttribute('data-type');
+    // const adElementType = adElement.getAttribute('data-type');
     // const adElementHref = adElement.getAttribute('data-href');
-    console.log(`Processing ad element of type: ${adElementType}`); // Log the type of each ad element
+    // console.log(`Processing ad element of type: ${adElementType}`); // Log the type of each ad element
 
     // Helper function to generate star rating HTML
     function generateStarRating(rating) {
