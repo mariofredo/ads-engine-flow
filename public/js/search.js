@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const searchBox = document.querySelector('.search_box');
     const searchResult = document.createElement('div');
     searchResult.classList.add('search_result');
-    searchResult.innerHTML = resultList;
+    searchResult.innerHTML = resultList.join('');
 
     searchBox.appendChild(searchResult); // Appending the new results
   }
