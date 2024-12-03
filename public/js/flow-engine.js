@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-  let arr;
   async function callHotelData(payload) {
     console.log('call hotel data');
     const response = await fetch(
@@ -24,26 +23,21 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function importCSS(url) {
-    console.log(`Importing CSS from: ${url}`); // Log the URL being imported
-    // Create a new link element
+    console.log(`Importing CSS from: ${url}`);
     const link = document.createElement('link');
     link.rel = 'stylesheet';
     link.href = url;
-
-    // Append the link element to the head of the document
     document.head.appendChild(link);
   }
   const urlParams = new URLSearchParams(window.location.search);
-  const search = urlParams.get('search');
   const id = urlParams.get('id');
   const type = urlParams.get('type');
   // Define base URL
   const baseURL = `https://ads-engine-flow.vercel.app`;
   // const baseURL = `http://localhost:4321`;
   console.log(`Base URL: ${baseURL}`); // Log the base URL
-
   // Example usage
-  importCSS(`${baseURL}/css/flow-engine.scss`);
+  importCSS(`/css/flow-engine.scss`);
 
   // Create and append the Font Awesome CDN link dynamically
   const fontAwesomeLink = document.createElement('link');
@@ -52,16 +46,8 @@ document.addEventListener('DOMContentLoaded', function () {
     'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css';
   document.head.appendChild(fontAwesomeLink);
 
-  // Find all elements with class "ad-flow"
   const adElements = document.querySelectorAll('.flow-box');
-  console.log(`Found ${adElements.length} ad elements.`); // Log the number of ad elements
-
   adElements.forEach((adElement) => {
-    // const adElementType = adElement.getAttribute('data-type');
-    // const adElementHref = adElement.getAttribute('data-href');
-    // console.log(`Processing ad element of type: ${adElementType}`); // Log the type of each ad element
-
-    // Helper function to generate star rating HTML
     function generateStarRating(rating) {
       let starHTML = '';
       for (let i = 1; i <= 5; i++) {
@@ -79,8 +65,6 @@ document.addEventListener('DOMContentLoaded', function () {
       const date = new Date(timestamp);
       return date.toLocaleString(); // Adjust options if you need a specific format
     }
-
-    // Loop melalui setiap elemen dan isi dengan konten iklan
     async function handleRenderCard() {
       const data = await callHotelData({
         space_type_tab: 'rest',

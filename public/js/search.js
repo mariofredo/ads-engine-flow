@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function () {
       </div>
     </form>
   `;
-  importCSS(`${baseURL}/css/search.scss`);
+  importCSS(`/css/search.scss`);
   document
     .querySelector('.search_box')
     .addEventListener('submit', async function (e) {
