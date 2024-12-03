@@ -44,11 +44,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const data = await response.json();
     console.log(data, 'data');
     const resultList =
-      data.results.map(
+      data.results[0].hits.map(
         (item) =>
-          `<a href="${baseURL}/list?id=${item.hits[0].document._id}&type=${item.hits[0].document.category}" class="search_result_item">
+          `<a href="${baseURL}/list?id=${item.document._id}&type=${item.document.category}" class="search_result_item">
         <img class="search_result_icon" src="${baseURL}/bed_icon.svg" alt="">
-        <p class="search_result_item_title">${item.hits[0].document.query}</p>
+        <p class="search_result_item_title">${item.document.query}</p>
       </a>`
       ) || `<p>No results found.</p>`;
     const searchBox = document.querySelector('.search_box');
