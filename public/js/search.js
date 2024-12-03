@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const search = document.querySelector('.search_item_input').value;
     const region = 'hk';
     // const baseURL = `https://ads-engine-flow.vercel.app`;
+    document.querySelector('.search_result').remove();
     const url = `https://typesense.flowtheroom.com/multi_search?region=${region}`;
     const response = await fetch(url, {
       method: 'POST',
