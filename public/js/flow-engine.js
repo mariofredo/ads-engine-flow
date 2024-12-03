@@ -66,6 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
       return date.toLocaleString(); // Adjust options if you need a specific format
     }
     async function handleRenderCard() {
+      adElement.querySelector('.flow-loading').style.display = 'block';
       const data = await callHotelData({
         space_type_tab: 'rest',
         sort_by: 's_default',
@@ -78,7 +79,6 @@ document.addEventListener('DOMContentLoaded', function () {
         },
       });
       const {spaces} = data;
-      console.log(spaces, 'spaces');
       const cards = spaces.map(
         (item) => `<a href="https://app.flowtheroom.com/hk/en/${
           item.slug
@@ -122,6 +122,7 @@ document.addEventListener('DOMContentLoaded', function () {
        </div>
      </a>`
       );
+      adElement.querySelector('.flow-loading').style.display = 'none';
       return (adElement.innerHTML = `
           <div class="card-flow-container">
               ${cards.join('')}

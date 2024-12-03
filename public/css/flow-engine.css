@@ -4,6 +4,10 @@
   align-items: center;
 }
 
+.flow-loading {
+  display: none;
+}
+
 .flow-box * {
   margin: 0px;
   padding: 0px;
