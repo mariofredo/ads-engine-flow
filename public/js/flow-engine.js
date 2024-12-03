@@ -94,6 +94,7 @@ document.addEventListener('DOMContentLoaded', function () {
         },
       });
       const {spaces} = data;
+      console.log(spaces, 'spaces');
       const cards = spaces.map(
         (item) => `<a href="https://app.flowtheroom.com/hk/en/${
           item.slug
