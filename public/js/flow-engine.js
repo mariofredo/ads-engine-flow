@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // const baseURL = `http://localhost:4321`;
   console.log(`Base URL: ${baseURL}`); // Log the base URL
   // Example usage
-  importCSS(`/css/flow-engine.scss`);
+  importCSS(`/css/flow-engine.css`);
 
   // Create and append the Font Awesome CDN link dynamically
   const fontAwesomeLink = document.createElement('link');
