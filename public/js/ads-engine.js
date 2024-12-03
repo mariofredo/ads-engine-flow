@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
   console.log(`Base URL: ${baseURL}`); // Log the base URL
 
   // Example usage
-  importCSS(`${baseURL}/css/ads-engine.css`);
+  importCSS(`${baseURL}/css/flow-engine.scss`);
 
   // Create and append the Font Awesome CDN link dynamically
   const fontAwesomeLink = document.createElement('link');
@@ -97,45 +97,48 @@ document.addEventListener('DOMContentLoaded', function () {
       const cards = spaces.map(
         (item) => `<a href="https://app.flowtheroom.com/hk/en/${
           item.slug
-        }/hotel" target="_blank" class="card-ad">
-       <img class="card-ad-img" src="${item.images[0]}" alt="blog-placeholder">
-       <div class="card-ad-content">
-         <h1 class="card-ad-title">${item.name.en}</h1>
-         <div class="card-ad-location">
-           <img class="card-ad-location-icon" src="${baseURL}/location-icon.svg" alt="location_icon">
-           <p class="card-ad-location-text">${
+        }/hotel" target="_blank" class="card-flow">
+       <img class="card-flow-img" src="${
+         item.images[0]
+       }" alt="blog-placeholder">
+       <div class="card-flow-content">
+         <h1 class="card-flow-title">${item.name.en}</h1>
+         <div class="card-flow-location">
+           <img class="card-flow-location-icon" src="${baseURL}/location-icon.svg" alt="location_icon">
+           <p class="card-flow-location-text">${
              item.location.district.name.en + ', ' + item.location.state.name.en
            }</p>
          </div>
-            <div class="card-ad-review">
+            <div class="card-flow-review">
                 <div class="star-rating">
                     ${generateStarRating(item.ranking.user_rating ?? 0)}
                 </div>
-                <p class="card-ad-review-text"><span id="rating value">${
+                <p class="card-flow-review-text"><span id="rating value">${
                   item.ranking.user_rating ?? 0
-                }</span> / 5 <span class="card-ad-review-count">(${
+                }</span> / 5 <span class="card-flow-review-count">(${
           item.ranking.total_comments
         } Reviews)</span></p>
               </div>
-         <div class="card-ad-tag-list">
+         <div class="card-flow-tag-list">
           ${item.tags
             .map(
-              (tag) => `<div class="card-ad-tag-bubble">${tag.content.en}</div>`
+              (tag) =>
+                `<div class="card-flow-tag-bubble">${tag.content.en}</div>`
             )
             .join('')}
          </div>
-         <div class="card-ad-available">
-           <div class="card-ad-available-text">Available date</div>
-           <p class="card-ad-available-date">${convertTimestampToDate(
+         <div class="card-flow-available">
+           <div class="card-flow-available-text">Available date</div>
+           <p class="card-flow-available-date">${convertTimestampToDate(
              item.next_available
            )}</p>
          </div>
-         <div class="card-ad-button"><span class="card-ad-button-text">HK$ 50</span></div>
+         <div class="card-flow-button"><span class="card-flow-button-text">HK$ 50</span></div>
        </div>
      </a>`
       );
       return (adElement.innerHTML = `
-          <div class="card-ad-container">
+          <div class="card-flow-container">
               ${cards.join('')}
           </div>
           `);
